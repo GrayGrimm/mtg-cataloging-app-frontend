@@ -14,13 +14,41 @@ const App = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/decks" element={<ProtectedRoute><DecksPage /></ProtectedRoute>} />
-      <Route path="/decks/:deckId" element={<ProtectedRoute><DeckDetailPage /></ProtectedRoute>} />
-      <Route path="/collection" element={<ProtectedRoute><CollectionPage /></ProtectedRoute>} />
-      <Route path="/cards/:cardId" element={<ProtectedRoute><CardDetailPage /></ProtectedRoute>} />
+      <Route
+        path="/decks"
+        element={
+          <ProtectedRoute>
+            <DecksPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/decks/:deckId"
+        element={
+          <ProtectedRoute>
+            <DeckDetailPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/collection"
+        element={
+          <ProtectedRoute>
+            <CollectionPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/cards/:cardId"
+        element={
+          <ProtectedRoute>
+            <CardDetailPage />
+          </ProtectedRoute>
+        }
+      />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
-}
+};
 
 export default App;

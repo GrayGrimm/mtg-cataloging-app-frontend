@@ -5,10 +5,10 @@ const ProtectedRoute = ({ children }) => {
     const { token } = useAuth();
 
     if (!token) {
-        return <Navigate to="/login" />
+        return <Navigate to="/login" />;
     }
 
     return children;
-}
+};
 
 export default ProtectedRoute;

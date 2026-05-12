@@ -3,7 +3,9 @@ import { createContext, useContext, useState } from "react";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-    const [token, setToken] = useState(() => localStorage.getItem("token") || null);
+    const [token, setToken] = useState(
+        () => localStorage.getItem("token") || null,
+    );
 
     const login = (newToken) => {
         setToken(newToken);
@@ -11,7 +13,7 @@ const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        setToken(null)
+        setToken(null);
         localStorage.removeItem("token");
     };
 
@@ -20,10 +22,10 @@ const AuthProvider = ({ children }) => {
             {children}
         </AuthContext.Provider>
     );
-}
+};
 
 const useAuth = () => {
     return useContext(AuthContext);
-}
+};
 
 export { AuthProvider, useAuth };
